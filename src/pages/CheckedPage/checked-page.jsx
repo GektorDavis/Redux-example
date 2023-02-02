@@ -1,11 +1,11 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { changeViewAction } from '../../storage/actions/actions';
+import { changeView } from '../../storageRTK/Counter/reducer';
 
 const CheckedPage = () => {
   const sameStorage = useSelector((state) => state);
   const dispatch = useDispatch();
   const showCounter = () => {
-    dispatch(changeViewAction());
+    dispatch(changeView());
   };
 
   return (

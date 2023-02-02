@@ -1,24 +1,12 @@
-import logo from './logo.svg';
+import { useSelector } from 'react-redux';
 import './App.css';
+import CheckedPage from './pages/CheckedPage/checked-page';
+import CounterPage from './pages/CounterPage/counter-page';
 
 function App() {
+  const shouldShow = useSelector((state) => state.counter.show);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <div className="App">{shouldShow ? <CounterPage /> : <CheckedPage />}</div>
   );
 }
 
